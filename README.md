@@ -13,7 +13,7 @@ Dockerビルド
 　   $ git push origin main
 　2. $ docker-compose up -d --build
 　   エラーが起きたので、docker-compose.ymlファイルを編集
-　   servicesのnginxとmysqlに「platform: linux/amd64」を追加した
+　   servicesのnginxとmysqlに「platform: linux/amd64」を追加し、再ビルド
 　   $ docker-compose down
 　   $ docker-compose build --no-cache
 　   $ docker-compose up -d
