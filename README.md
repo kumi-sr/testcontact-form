@@ -1,7 +1,9 @@
 # お問い合わせフォーム（testcontact-form）
 
 ## 環境構築
-Dockerビルド
+<details>
+  <summary>コマンド</summary>
+  Dockerビルド
 　1. $ cd coachtech/laravel
 　   $ git clone git@github.com:coachtech-material/laravel-docker-template.git
 　   $ mv laravel-docker-template testcontact-form
@@ -18,7 +20,7 @@ Dockerビルド
 　   $ docker-compose build --no-cache
 　   $ docker-compose up -d
 　   $ code .
-
+</details>
 ## Laravel環境構築
 　1. $ docker-compose exec php bash
 　2. $ composer install
