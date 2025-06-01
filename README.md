@@ -2,27 +2,28 @@
 
 ## 環境構築
 <details>
-  <summary>コマンド</summary>
-  Dockerビルド
-　1. $ cd coachtech/laravel
-　   $ git clone git@github.com:coachtech-material/laravel-docker-template.git
-　   $ mv laravel-docker-template testcontact-form
-　   $ cd testcontact-form
-　   $ git remote set-url origin git@github.com:kumi-sr/testcontact-form.git
-　   $ git remote -v
-　   $ git add .
-　   $ git commit -m "リモートリポジトリの変更"
-　   $ git push origin main
-　2. $ docker-compose up -d --build
-　   エラーが起きたので、docker-compose.ymlファイルを編集
-　   servicesのnginxとmysqlに「platform: linux/amd64」を追加し、再ビルド
-　   $ docker-compose down
-　   $ docker-compose build --no-cache
-　   $ docker-compose up -d
-　   $ code .
+  <summary>dockerビルド</summary>
+　   $ cd coachtech/laravel<br>
+　   $ git clone git@github.com:coachtech-material/laravel-docker-template.git<br>
+　   $ mv laravel-docker-template testcontact-form<br>
+　   $ cd testcontact-form<br>
+　   $ git remote set-url origin git@github.com:kumi-sr/testcontact-form.git<br>
+　   $ git remote -v<br>
+　   $ git add .<br>
+　   $ git commit -m "リモートリポジトリの変更"<br>
+　   $ git push origin main<br>
+　   $ docker-compose up -d --build<br>
+　   エラーが起きたので、docker-compose.ymlファイルを編集<br>
+　   servicesのnginxとmysqlに「platform: linux/amd64」を追加し、再ビルド<br>
+　   $ docker-compose down<br>
+　   $ docker-compose build --no-cache<br>
+　   $ docker-compose up -d<br>
+　   $ code .<br>
 </details>
-## Laravel環境構築
-　1. $ docker-compose exec php bash
-　2. $ composer install
-　3. $ cp .env.example .env
-　   $ exit
+<details> 
+  <summary>Laravel環境構築</summary>
+　 $ docker-compose exec php bash<br>
+　 $ composer install<br>
+　 $ cp .env.example .env<br>
+　 $ exit<br>
+</details>
