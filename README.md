@@ -26,4 +26,11 @@
 　 $ composer install<br>
 　 $ cp .env.example .env<br>
 　 $ exit<br>
+　 $ php artisan key:generate<br>
+　 $ php artisan migrate
 </details>
+
+## URL
+開発環境：http://localhost/<br>
+phpMyAdmin：http://localhost:8080/
+
