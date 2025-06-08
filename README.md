@@ -30,6 +30,15 @@
 　 $ php artisan migrate
 </details>
 
+## 使用技術
+- PHP 7.4.9
+- Laravel 8.83.8
+- MySQL 8.0.26
+- nginx 1.21.1
+
+## ER図
+<img width="213" alt="スクリーンショット 2025-06-08 14 18 19" src="https://github.com/user-attachments/assets/090620e0-f507-4ec0-af4a-0ef7ca410189" />
+
 ## URL
 開発環境：http://localhost/<br>
 phpMyAdmin：http://localhost:8080/
