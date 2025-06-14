@@ -1,45 +1,56 @@
-# お問い合わせフォーム（testcontact-form）
+# FashionablyLate(お問い合わせフォーム)
 
 ## 環境構築
-<details>
-  <summary>dockerビルド</summary>
-　   $ cd coachtech/laravel<br>
-　   $ git clone git@github.com:coachtech-material/laravel-docker-template.git<br>
-　   $ mv laravel-docker-template testcontact-form<br>
-　   $ cd testcontact-form<br>
-　   $ git remote set-url origin git@github.com:kumi-sr/testcontact-form.git<br>
-　   $ git remote -v<br>
-　   $ git add .<br>
-　   $ git commit -m "リモートリポジトリの変更"<br>
-　   $ git push origin main<br>
-　   $ docker-compose up -d --build<br>
-　   エラーが起きたので、docker-compose.ymlファイルを編集<br>
-　   servicesのnginxとmysqlに「platform: linux/amd64」を追加し、再ビルド<br>
-　   $ docker-compose down<br>
-　   $ docker-compose build --no-cache<br>
-　   $ docker-compose up -d<br>
-　   $ code .<br>
-</details>
-<details> 
-  <summary>Laravel環境構築</summary>
-　 $ docker-compose exec php bash<br>
-　 $ composer install<br>
-　 $ cp .env.example .env<br>
-　 $ exit<br>
-　 $ php artisan key:generate<br>
-　 $ php artisan migrate
-</details>
+**Dockerビルド**
+1. `git clone git@github.com:estra-inc/confirmation-test-contact-form.git`
+2. DockerDesktopアプリを立ち上げる
+3. `docker-compose up -d --build`
 
-## 使用技術
-- PHP 7.4.9
-- Laravel 8.83.8
-- MySQL 8.0.26
-- nginx 1.21.1
+> *MacのM1・M2チップのPCの場合、`no matching manifest for linux/arm64/v8 in the manifest list entries`のメッセージが表示されビルドができないことがあります。
+エラーが発生する場合は、docker-compose.ymlファイルの「mysql」内に「platform」の項目を追加で記載してください*
+``` bash
+mysql:
+    platform: linux/x86_64(この文追加)
+    image: mysql:8.0.26
+    environment:
+```
+
+**Laravel環境構築**
+1. `docker-compose exec php bash`
+2. `composer install`
+3. 「.env.example」ファイルを 「.env」ファイルに命名を変更。または、新しく.envファイルを作成
+4. .envに以下の環境変数を追加
+``` text
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel_db
+DB_USERNAME=laravel_user
+DB_PASSWORD=laravel_pass
+```
+5. アプリケーションキーの作成
+``` bash
+php artisan key:generate
+```
+
+6. マイグレーションの実行
+``` bash
+php artisan migrate
+```
+
+7. シーディングの実行
+``` bash
+php artisan db:seed
+```
+
+## 使用技術(実行環境)
+- PHP8.3.0
+- Laravel8.83.27
+- MySQL8.0.26
 
 ## ER図
-<img width="213" alt="スクリーンショット 2025-06-08 14 18 19" src="https://github.com/user-attachments/assets/090620e0-f507-4ec0-af4a-0ef7ca410189" />
+![alt](erd.png)
 
 ## URL
-開発環境：http://localhost/<br>
-phpMyAdmin：http://localhost:8080/
-
+- 開発環境：http://localhost/
+- phpMyAdmin:：http://localhost:8080/
